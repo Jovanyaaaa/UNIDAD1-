@@ -1,7 +1,7 @@
 DROP TABLE Usuarios
 DROP TABLE Peliculas 
-DROP TABLE Reseña
 DROP TABLE Comentarios 
+DROP TABLE Noticias 
 
 CREATE TABLE Usuarios(
 	LoginID nvarchar(100) PRIMARY KEY,
@@ -11,23 +11,23 @@ CREATE TABLE Usuarios(
 	Administrador BIT NOT NULL DEFAULT 0,
  )
 CREATE TABLE Peliculas(
-	IDPelicula nvarchar (100) PRIMARY KEY,
+	IDPelicula bigint NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	Nombre nvarchar(100) NOT NULL,
 	Duracion datetime NOT NULL,
 	Elenco nvarchar(100) NOT NULL,
 	Director nvarchar(100) NOT NULL,
-)
-CREATE TABLE Reseña(
-	IDPelicula nvarchar(100) NOT NULL REFERENCES Peliculas,
-	FechaCreacion datetime NOT NULL DEFAULT getdate(),
-	Reseña nvarchar(100) NOT NULL,
-	Recomendado BIT NOT NULL,
+	Reseña text NOT NULL,
 )
 CREATE TABLE Comentarios (
 	LoginID nvarchar(100) NOT NULL PRIMARY KEY REFERENCES Usuarios,
 	Texto nvarchar(100) NOT NULL,
 	Valoracion nvarchar(100),
+	IDPelicula bigint REFERENCES Peliculas,
 )	
-	
+CREATE TABLE NOTICIAS(
+	IDPelicula bigint REFERENCES Peliculas,
+	IDNoticia bigint NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	Texto text NOT NULL,
+)	
 
              
