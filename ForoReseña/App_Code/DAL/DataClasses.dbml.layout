@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.125" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ae4e8a55-87fc-4b8c-a1f0-4d4d076172f0" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/Comentario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="228ac2cd-caeb-4161-9b73-12eb30aa9375" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9294777-889c-4055-a16e-45b10b543c98" absoluteBounds="3.5, 3.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataClassesDataContext/Noticia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7db48b2-a418-446c-8794-0631b8d1a931" absoluteBounds="3.515, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ab73142-d0ed-4c42-b612-d17ddee05359" absoluteBounds="0.75, 3.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DataClassesDataContext/Pelicula" />
+      <nestedChildShapes>
+        <elementListCompartment Id="937729f9-9302-42db-994e-a852e126a8b5" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf10b2d6-6626-47c0-8723-ee1a731ac76a" absoluteBounds="0.75, 7.125, 2, 1.7708968098958318">
+      <DataClassMoniker Name="/DataClassesDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e3a96c4-31aa-479c-afa4-b1dd5013e426" absoluteBounds="0.765, 7.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 3.5); (1.75 : 1.53929768880208); (3.5 : 1.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Pelicula/Pelicula_Comentario" />
+      <nodes>
+        <classShapeMoniker Id="2ab73142-d0ed-4c42-b612-d17ddee05359" />
+        <classShapeMoniker Id="ae4e8a55-87fc-4b8c-a1f0-4d4d076172f0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.56814697265625); (3.04166666666667 : 4.56814697265625 : JumpStart); (3.20833333333333 : 4.56814697265625 : JumpEnd); (3.5 : 4.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Pelicula/Pelicula_Noticia" />
+      <nodes>
+        <classShapeMoniker Id="2ab73142-d0ed-4c42-b612-d17ddee05359" />
+        <classShapeMoniker Id="a9294777-889c-4055-a16e-45b10b543c98" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.125); (3.125 : 6.75); (3.125 : 1.96519853320312); (3.5 : 1.96519853320312)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Usuario/Usuario_Comentario" />
+      <nodes>
+        <classShapeMoniker Id="bf10b2d6-6626-47c0-8723-ee1a731ac76a" />
+        <classShapeMoniker Id="ae4e8a55-87fc-4b8c-a1f0-4d4d076172f0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

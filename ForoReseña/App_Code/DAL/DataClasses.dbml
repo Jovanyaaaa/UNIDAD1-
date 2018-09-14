@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProjectoFORO" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-JOVANY;Initial Catalog=ProjectoFORO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProjectoFOROConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Comentario" Member="Comentario">
+    <Type Name="Comentario">
+      <Column Name="LoginID" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Texto" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Valoracion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDPelicula" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Pelicula_Comentario" Member="Pelicula" ThisKey="IDPelicula" OtherKey="IDPelicula" Type="Pelicula" IsForeignKey="true" />
+      <Association Name="Usuario_Comentario" Member="Usuario" ThisKey="LoginID" OtherKey="LoginID" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Noticia" Member="Noticia">
+    <Type Name="Noticia">
+      <Column Name="IDPelicula" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDNoticia" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Texto" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Pelicula_Noticia" Member="Pelicula" ThisKey="IDPelicula" OtherKey="IDPelicula" Type="Pelicula" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pelicula" Member="Pelicula">
+    <Type Name="Pelicula">
+      <Column Name="IDPelicula" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Duracion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Elenco" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Director" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Reseña" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Pelicula_Comentario" Member="Comentario" ThisKey="IDPelicula" OtherKey="IDPelicula" Type="Comentario" />
+      <Association Name="Pelicula_Noticia" Member="Noticia" ThisKey="IDPelicula" OtherKey="IDPelicula" Type="Noticia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="LoginID" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Administrador" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Comentario" Member="Comentario" ThisKey="LoginID" OtherKey="LoginID" Type="Comentario" Cardinality="One" />
+    </Type>
+  </Table>
+</Database>
